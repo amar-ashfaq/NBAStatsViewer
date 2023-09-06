@@ -1,0 +1,55 @@
+﻿@model List<NBAStatsViewer.Models.CombinedDataModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Stats</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1 id="index-main-title">NBA Team Statistics</h1>
+    <main>
+        <table id="NBA-Stats-Table">
+            <thead>
+                <tr>
+                    <th>Team Name</th>
+                    <th>Stadium</th>
+                    <th>Logo</th>
+                    <th>Games Played</th>
+                    <th id="games-won-column">Games Won</th>
+                    <th id="games-lost-column">Games Lost</th>
+                    <th>Played Home</th>
+                    <th>Played Away</th>
+                    <th>Biggest Win</th>
+                    <th>Biggest Loss</th>
+                    <th>Last Game Stadium</th>
+                    <th>Last Game Date</th>
+                    <th>MVP</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Stadium</td>
+                        <td><a href="@item.URL" target="_blank"><img src="@item.Logo" alt="Team Logo" class="team-logo" /></a></td>
+                        <td>@item.Played</td>
+                        <td>@item.Won</td>
+                        <td>@item.Lost</td>
+                        <td>@item.PlayedHome</td>
+                        <td>@item.PlayedAway</td>
+                        <td>@item.BiggestWin</td>
+                        <td>@item.BiggestLoss</td>
+                        <td>@item.LastGameStadium</td>
+                        <td>@item.LastGameDate.ToString("yyyy-MM-dd")</td>
+                        <td>@item.MVP</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <canvas id="teamStatsChart"></canvas>
+    </main>
+    <script src="~/Scripts/teamStats.js"></script>
+</body>
+</html>
