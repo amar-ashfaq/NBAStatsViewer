@@ -4,3 +4,5 @@
  The database file 'NBA.BAK' has been added in the same directory as the project files.
 
  The database connection string can be found in 'Web.config' file under the ConnectionStrings node.
+
+ The database stored procedure file has been added in the same directory as the project files - 'CalculateAllStats-StoredProcedure.sql'
